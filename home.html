@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صالون دمشق للرجال - الرئيسية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="home-page">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">صالون دمشق</a>
+            <ul class="nav-links">
+                <li><a href="home.html" class="active">الرئيسية</a></li>
+                <li><a href="index.html">حجز موعد</a></li>
+                <li><a href="products.html">المنتجات</a></li>
+                <li><a href="admin.html">لوحة الإدارة</a></li>
+            </ul>
+            <span class="nishman-brand">برعاية <span class="nishman">NISHMAN</span></span>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <h1>أهلاً بك في صالون دمشق للرجال</h1>
+        <p>نقدم لك أفضل خدمات العناية بالشعر والذقن مع أمهر الحلاقين.</p>
+        <p>هذا الموقع من تصميم المهندس شمس الدين للتواصل: +905510364947</p>
+        <a href="index.html" class="btn">احجز الآن</a>
+    </section>
+
+    <section class="worker-status-section card-container">
+        <h2>حالة الحلاقين اليوم</h2>
+        <div class="worker-status-card">
+            <h3>مالك: <span id="malekWorkerStatusText">جاري التحميل...</span></h3>
+        </div>
+        <div class="worker-status-card">
+            <h3>محمد: <span id="mohamedWorkerStatusText">جاري التحميل...</span></h3>
+        </div>
+        <div class="worker-status-card">
+            <h3>كوافير: <span id="kawafirWorkerStatusText">جاري التحميل...</span></h3>
+        </div>
+    </section>
+
+    <section class="schedules-section">
+        <h2>جدول المواعيد</h2>
+        <div class="hairstylist-schedule-container">
+            <div class="hairstylist-schedule-card">
+                <h3>جدول مواعيد مالك</h3>
+                <div id="malekScheduleContainer" class="table-responsive"></div>
+            </div>
+            <div class="hairstylist-schedule-card">
+                <h3>جدول مواعيد محمد</h3>
+                <div id="mohamedScheduleContainer" class="table-responsive"></div>
+            </div>
+            <div class="hairstylist-schedule-card">
+                <h3>جدول مواعيد كوافير</h3>
+                <div id="kawafirScheduleContainer" class="table-responsive"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            &copy; 2024 صالون دمشق للرجال. جميع الحقوق محفوظة. | برعاية <span class="nishman">NISHMAN</span>
+        </div>
+    </footer>
+
+    <script src="home.js"></script>
+</body>
+</html> 

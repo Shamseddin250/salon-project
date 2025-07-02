@@ -1,0 +1,779 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800;900&family=Montserrat:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+:root {
+    --primary-dark: #1A2238; /* Deep Blue/Charcoal */
+    --secondary-light: #FFFFFF; /* White */
+    --accent-teal: #00BFAE; /* Modern Teal */
+    --danger: #e63946; /* Red for 'محجوز' */
+    --success: #43aa8b; /* Green for 'متاح' */
+    --text-dark: var(--primary-dark);
+    --text-light: var(--secondary-light);
+    --border-light: #E0E0E0;
+    --shadow-soft: rgba(26, 34, 56, 0.08);
+    --shadow-strong: rgba(26, 34, 56, 0.15);
+    --radius-small: 8px;
+    --radius-medium: 12px;
+    --radius-large: 24px;
+    --transition-speed: 0.3s ease-in-out;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif; /* Primary font for Arabic */
+    background-color: var(--secondary-light);
+    color: var(--text-dark);
+    margin: 0;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    direction: rtl; /* For Arabic language */
+}
+
+.container {
+    max-width: 960px;
+    margin: 2.5rem auto;
+    padding: 2rem;
+    background-color: var(--secondary-light);
+    border-radius: var(--radius-large);
+    box-shadow: 0 10px 30px var(--shadow-soft);
+    text-align: center;
+    animation: fadeIn 0.8s ease-out;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Tajawal', sans-serif; /* Ensuring Tajawal for headings */
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+h1 {
+    font-size: 2.8rem;
+    color: var(--accent-teal);
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.text-accent {
+    color: var(--accent-teal);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 2.2rem;
+    border: none;
+    border-radius: var(--radius-large);
+    background-color: var(--accent-teal);
+    color: var(--secondary-light);
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    box-shadow: 0 4px 15px rgba(0, 191, 174, 0.2);
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    background-color: #009E8E; /* Slightly darker teal */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 191, 174, 0.3);
+}
+
+.btn-secondary {
+    background-color: var(--primary-dark);
+    box-shadow: 0 4px 15px rgba(26, 34, 56, 0.2);
+}
+
+.btn-secondary:hover {
+    background-color: #0F1521; /* Slightly darker primary */
+    box-shadow: 0 6px 20px rgba(26, 34, 56, 0.3);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: right;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 1.05rem;
+}
+
+input[type="text"], input[type="tel"], input[type="password"], input[type="date"], select {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-small);
+    font-size: 1rem;
+    background-color: var(--secondary-light);
+    color: var(--text-dark);
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus, input[type="tel"]:focus, input[type="password"]:focus, input[type="date"]:focus, select:focus {
+    border-color: var(--accent-teal);
+    box-shadow: 0 0 0 3px rgba(0, 191, 174, 0.2);
+    outline: none;
+}
+
+.success-message {
+    color: var(--accent-teal);
+    margin-top: 1.5rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    opacity: 0;
+    transition: opacity 0.7s ease-out;
+}
+
+.success-message.show {
+    opacity: 1;
+}
+
+.error-message {
+    color: var(--danger);
+    margin-top: 1rem;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--primary-dark);
+    padding: 1.2rem 0;
+    box-shadow: 0 4px 20px var(--shadow-soft);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-family: 'Montserrat', sans-serif; /* A strong, modern font for logo */
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--accent-teal);
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--secondary-light);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color var(--transition-speed);
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--accent-teal);
+    transition: width var(--transition-speed);
+}
+
+.nav-links a:hover::after, .nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--accent-teal);
+}
+
+.nishman-brand {
+    color: var(--secondary-light);
+    font-size: 0.9rem;
+}
+
+.nishman {
+    color: var(--accent-teal);
+    font-weight: 700;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, rgba(26, 34, 56, 0.8) 100%), url('https://images.unsplash.com/photo-1596434440059-e93540a7d5b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    color: var(--secondary-light);
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 25px var(--shadow-soft);
+}
+
+.hero-section h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: var(--accent-teal);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.hero-section p {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin: 0 auto 2.5rem auto;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Cards */
+.card {
+    background-color: var(--secondary-light);
+    border-radius: var(--radius-medium);
+    box-shadow: 0 5px 15px var(--shadow-soft);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    text-align: right;
+}
+
+.card h3 {
+    color: var(--primary-dark);
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+}
+
+/* Table */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.reg-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    border-radius: var(--radius-medium);
+    overflow: hidden; /* Ensures rounded corners apply to content */
+}
+
+.reg-table th, .reg-table td {
+    padding: 1.2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.reg-table th {
+    background-color: var(--primary-dark);
+    color: var(--accent-teal);
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.reg-table td {
+    background-color: var(--secondary-light);
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.reg-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.reg-table .open {
+    color: var(--success);
+    font-weight: 800;
+}
+
+.reg-table .closed {
+    color: var(--danger);
+    font-weight: 800;
+}
+
+/* Day/Time Pickers (Registration Page) */
+.day-picker, .time-slots {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.day-card, .time-slot {
+    flex: 1 1 auto;
+    max-width: 300px;
+    padding: 1.2rem 1.5rem;
+    border: 2px solid var(--accent-teal);
+    border-radius: var(--radius-large);
+    background-color: var(--secondary-light);
+    color: var(--accent-teal);
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    box-shadow: 0 4px 10px rgba(0, 191, 174, 0.1);
+    text-align: center;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.day-card.selected, .time-slot.selected, 
+.day-card:hover, .time-slot:hover {
+    background-color: var(--accent-teal);
+    color: var(--secondary-light);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 191, 174, 0.25);
+}
+
+.time-slot.unavailable {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: var(--border-light);
+    color: var(--text-dark);
+    background-color: #F0F0F0;
+    box-shadow: none;
+    text-decoration: line-through;
+}
+
+.time-slot.unavailable:hover {
+    transform: none;
+    box-shadow: none;
+    background-color: #F0F0F0;
+    color: var(--text-dark);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary-dark);
+    color: var(--secondary-light);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    margin-top: auto; /* Pushes footer to the bottom */
+    box-shadow: 0 -4px 20px var(--shadow-soft);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .nav-links {
+        gap: 1rem;
+    }
+    .logo {
+        margin-bottom: 0.5rem;
+    }
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    .hero-section p {
+        font-size: 1rem;
+    }
+    .container {
+        padding: 1.5rem;
+        margin: 1.5rem auto;
+    }
+    .btn {
+        padding: 0.8rem 1.8rem;
+        font-size: 1rem;
+    }
+    .day-card, .time-slot {
+        padding: 1rem 1.2rem;
+        font-size: 1rem;
+        min-height: 60px;
+    }
+    .form-group label {
+        font-size: 0.95rem;
+    }
+    input[type="text"], input[type="tel"], input[type="password"], input[type="date"], select {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    .hero-section p {
+        font-size: 0.9rem;
+    }
+    .day-picker, .time-slots {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    .day-card, .time-slot {
+        max-width: 100%;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Time slot picker styles */
+.time-slots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin: 1.2rem 0 1.7rem 0;
+    justify-content: center;
+}
+.time-slot {
+    background: var(--secondary-light);
+    color: var(--accent-teal);
+    border: 2px solid var(--accent-teal);
+    border-radius: 999px;
+    padding: 0.7em 1.5em;
+    font-size: 1.1rem;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border 0.2s, transform 0.1s;
+    outline: none;
+    min-width: 80px;
+    min-height: 44px;
+    box-shadow: 0 2px 8px rgba(0,191,174,0.07);
+    margin-bottom: 0.2em;
+}
+.time-slot.selected, .time-slot:active {
+    background: var(--accent-teal);
+    color: var(--secondary-light);
+    border: 2px solid var(--accent-teal);
+    transform: scale(1.07);
+}
+.time-slot:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Day picker styles */
+.day-picker {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    margin: 1.2rem 0 1.7rem 0;
+    flex-wrap: wrap;
+}
+.day-card {
+    background: #f5f7fa;
+    color: var(--primary-dark);
+    border: 2px solid var(--accent-teal);
+    border-radius: 18px;
+    padding: 1.2em 2.2em;
+    font-size: 1.25rem;
+    font-family: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border 0.2s, transform 0.1s, box-shadow 0.2s;
+    outline: none;
+    min-width: 120px;
+    min-height: 56px;
+    box-shadow: 0 2px 12px rgba(0,191,174,0.07);
+    margin-bottom: 0.2em;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-top: 0.2em;
+}
+.day-card.selected, .day-card:active {
+    background: var(--accent-teal);
+    color: var(--secondary-light);
+    border: 2px solid var(--accent-teal);
+    transform: scale(1.07);
+    box-shadow: 0 4px 24px rgba(0,191,174,0.13);
+}
+.day-card:hover {
+    background: #e0f7f5;
+    color: var(--primary-dark);
+    border: 2px solid var(--accent-teal);
+    transform: scale(1.04);
+}
+@media (max-width: 600px) {
+    .day-card {
+        font-size: 1.05rem;
+        padding: 0.8em 1.1em;
+        min-width: 90px;
+        min-height: 44px;
+    }
+    .day-picker {
+        gap: 0.5rem;
+    }
+}
+
+/* Admin Page Specific Styles */
+.admin-page .hairstylist-schedule-container {
+    display: flex;
+    flex-direction: column; /* Stack tables vertically */
+    gap: 0; /* No gap when stacking vertically */
+    justify-content: center; /* Center the cards */
+    margin-top: 20px;
+}
+
+.admin-page .hairstylist-schedule-card {
+    flex: 1 1 100%; /* Make each card take full width */
+    max-width: 100%; /* Ensure it doesn't exceed 100% width */
+    background-color: var(--secondary-light);
+    padding: 25px;
+    border-radius: var(--radius-medium);
+    box-shadow: 0 5px 15px var(--shadow-soft);
+    text-align: center;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    margin-bottom: 20px; /* Add margin between stacked cards */
+}
+
+/* Responsive adjustments for Admin Page */
+@media (max-width: 900px) {
+    .admin-page .hairstylist-schedule-card {
+        flex: 1 1 100%; /* Keep as single column */
+    }
+}
+
+@media (max-width: 600px) {
+    .admin-page .hairstylist-schedule-card {
+        flex: 1 1 100%; /* Keep as single column */
+    }
+}
+
+/* Home Page Specific Styles */
+.home-page .hairstylist-schedule-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+}
+
+.home-page .hairstylist-schedule-card {
+    flex: 1 1 30%; /* Allow cards to grow and shrink, with a base of 30% width */
+    min-width: 280px; /* Minimum width to prevent them from becoming too small */
+    max-width: 32%; /* Max width to ensure three columns on larger screens */
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: var(--secondary-light);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px; /* Added margin for spacing between cards */
+}
+
+/* Responsive adjustments for Home Page */
+@media (max-width: 900px) {
+    .home-page .hairstylist-schedule-card {
+        flex: 1 1 45%; /* Two columns on medium screens */
+        max-width: 48%;
+    }
+}
+
+@media (max-width: 600px) {
+    .home-page .hairstylist-schedule-card {
+        flex: 1 1 90%; /* Single column on small screens */
+        max-width: 100%;
+    }
+}
+
+.hairstylist-schedule-card h4 {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.4rem;
+    color: var(--accent-teal);
+    margin-bottom: 1rem;
+}
+
+/* Worker Status Section on Home Page */
+.worker-status-section {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.worker-status-section h2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+}
+
+.worker-status-card {
+    background-color: var(--secondary-light);
+    padding: 1.5rem 2rem;
+    border-radius: var(--radius-large);
+    box-shadow: 0 8px 25px var(--shadow-soft);
+    flex: 1 1 250px;
+    max-width: 300px;
+    text-align: center;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.worker-status-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px var(--shadow-strong);
+}
+
+.worker-status-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+    color: var(--primary-dark);
+}
+
+.worker-status-card span {
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+/* Product Cards for products.html */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+    justify-items: center;
+}
+
+.product-card {
+    background-color: var(--secondary-light);
+    border-radius: var(--radius-large);
+    box-shadow: 0 8px 25px var(--shadow-soft);
+    text-align: center;
+    padding: 1.5rem;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Ensure it takes full grid column width */
+    max-width: 300px; /* Max width for individual cards */
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px var(--shadow-strong);
+}
+
+.product-image {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    border-radius: var(--radius-small);
+    margin-bottom: 1rem;
+    object-fit: cover;
+}
+
+.product-name {
+    font-size: 1.4rem;
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    color: var(--accent-teal);
+    font-weight: 800;
+}
+
+/* Admin Product Table Styles */
+.admin-page #productsAdminTableContainer .reg-table {
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.admin-page #productsAdminTableContainer .reg-table input[type="text"],
+.admin-page #productsAdminTableContainer .reg-table input[type="number"] {
+    width: calc(100% - 10px); /* Adjust width for padding */
+    padding: 0.5rem;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-small);
+    font-size: 0.95rem;
+    box-sizing: border-box;
+}
+
+.admin-page #productsAdminTableContainer .reg-table .btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    margin: 0.2rem;
+}
+
+/* Drag and Drop Area Styles */
+.drop-area {
+    border: 2px dashed var(--border-light);
+    border-radius: var(--radius-small);
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all var(--transition-speed);
+    background-color: #f9f9f9;
+    color: var(--text-dark);
+}
+
+.drop-area.highlight {
+    border-color: var(--accent-teal);
+    background-color: #e6f7ff;
+    box-shadow: 0 0 0 3px rgba(0, 191, 174, 0.2);
+}
+
+.drop-area p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.drop-area .select-file-btn {
+    color: var(--accent-teal);
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.product-image-preview {
+    margin-top: 15px;
+    max-width: 100%;
+    max-height: 150px;
+    border-radius: var(--radius-small);
+    object-fit: contain;
+    display: block; /* Ensures it takes its own line */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.admin-page #productsAdminTableContainer .reg-table .edit-image-btn {
+    margin-left: 5px;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+}

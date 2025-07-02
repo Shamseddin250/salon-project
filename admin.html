@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة الإدارة - صالون دمشق للرجال</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-page">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">صالون دمشق</a>
+            <ul class="nav-links">
+                <li><a href="home.html">الرئيسية</a></li>
+                <li><a href="index.html">حجز موعد</a></li>
+                <li><a href="products.html">المنتجات</a></li>
+                <li><a href="admin.html" class="active">لوحة الإدارة</a></li>
+            </ul>
+            <span class="nishman-brand">برعاية <span class="nishman">NISHMAN</span></span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>لوحة تحكم الإدارة</h1>
+        <div id="adminLogin" class="card">
+            <h3>تسجيل الدخول</h3>
+            <form id="adminLoginForm">
+                <div class="form-group">
+                    <label for="adminPassword">كلمة مرور الإدارة:</label>
+                    <input type="password" id="adminPassword" required>
+                </div>
+                <button type="submit" class="btn">دخول</button>
+                <div id="errorMessage" class="error-message"></div>
+            </form>
+        </div>
+
+        <div id="adminPanel" style="display:none;">
+            <div class="card">
+                <h3>تغيير حالة العامل</h3>
+                <div class="worker-status-item">
+                    <h4>حالة مالك: <span id="malekAdminWorkerStatusText">جاري التحميل...</span></h4>
+                    <button id="toggleMalekStatus" class="btn btn-secondary" data-hairstylist="مالك">تغيير الحالة</button>
+                </div>
+                <div class="worker-status-item">
+                    <h4>حالة محمد: <span id="mohamedAdminWorkerStatusText">جاري التحميل...</span></h4>
+                    <button id="toggleMohamedStatus" class="btn btn-secondary" data-hairstylist="محمد">تغيير الحالة</button>
+                </div>
+                <div class="worker-status-item">
+                    <h4>حالة كوافير: <span id="kawafirAdminWorkerStatusText">جاري التحميل...</span></h4>
+                    <button id="toggleKawafirStatus" class="btn btn-secondary" data-hairstylist="كوافير">تغيير الحالة</button>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>تعديل جدول المواعيد</h3>
+                <div class="hairstylist-schedule-container">
+                    <div class="hairstylist-schedule-card">
+                        <h4>جدول مواعيد مالك</h4>
+                        <div id="malekAdminScheduleContainer" class="table-responsive"></div>
+                    </div>
+                    <div class="hairstylist-schedule-card">
+                        <h4>جدول مواعيد محمد</h4>
+                        <div id="mohamedAdminScheduleContainer" class="table-responsive"></div>
+                    </div>
+                    <div class="hairstylist-schedule-card">
+                        <h4>جدول مواعيد كوافير</h4>
+                        <div id="kawafirAdminScheduleContainer" class="table-responsive"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>إدارة المنتجات</h3>
+                <form id="productForm">
+                    <div class="form-group">
+                        <label for="productName">اسم المنتج:</label>
+                        <input type="text" id="productName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productPrice">السعر (ل.ت):</label>
+                        <input type="number" id="productPrice" required min="0" step="any">
+                    </div>
+                    <div class="form-group">
+                        <label for="productImageUrl">صورة المنتج:</label>
+                        <div id="dropArea" class="drop-area">
+                            <input type="file" id="productImageInput" accept="image/*" hidden>
+                            <p>اسحب وأفلت صورة هنا أو <span class="select-file-btn">اضغط للاختيار</span></p>
+                            <img id="imagePreview" src="#" alt="معاينة الصورة" style="display:none; max-width: 150px; max-height: 150px; margin-top: 10px;">
+                            <button type="button" id="removeImage" class="btn btn-small btn-secondary" style="display:none; margin-top: 10px;">إزالة الصورة</button>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn">أضف منتج جديد</button>
+                    <button type="button" id="clearProductForm" class="btn btn-secondary">إلغاء</button>
+                    <input type="hidden" id="productId">
+                </form>
+                <div id="productsAdminTableContainer" class="table-responsive"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            &copy; 2024 صالون دمشق للرجال. جميع الحقوق محفوظة. | برعاية <span class="nishman">NISHMAN</span>
+        </div>
+    </footer>
+
+    <script src="admin.js"></script>
+</body>
+</html> 
